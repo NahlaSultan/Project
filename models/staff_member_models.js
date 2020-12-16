@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const { attendanceSchema } = require('./attendance_record')
 const staffSchema = new mongoose.Schema(
     {
         name: {
@@ -23,7 +24,7 @@ const staffSchema = new mongoose.Schema(
         } ,
         salary: {
             type: Number,
-            required:true
+           // required:true
         } ,
         role: {
             type: String,
@@ -31,8 +32,8 @@ const staffSchema = new mongoose.Schema(
             //operators start with $, to specify constraints
             $in: [ "HR members","academic members"]
         },
-        attendance:{type:mongoose.Schema.Types.ObjectId,
-                    ref:'attendance'}
+        attendance:{type:attendanceSchema
+                    }
     })
 
     
