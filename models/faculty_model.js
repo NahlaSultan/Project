@@ -1,17 +1,18 @@
 const mongoose = require('mongoose')
 const { courseSchema } = require('./course_model')
 const { staffSchema } = require('./staff_member_models')
-
+const { departmentSchema } = require('./department_model')
 
 
 const facultySchema = new mongoose.Schema({
     facultyName: {
         type: String,
-        required: true
+        required: true,
+
     },
     department: {
-        type: String,
-        required: true
+        type: departmentSchema
+
     },
     headOfDepartment: {
         type: staffSchema,
